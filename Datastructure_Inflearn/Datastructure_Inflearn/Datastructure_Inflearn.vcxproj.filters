@@ -30,5 +30,8 @@
     <ClCompile Include="ds4_2.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="ds4_3.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
