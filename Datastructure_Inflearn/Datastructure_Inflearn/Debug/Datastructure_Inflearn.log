@@ -1,0 +1,11 @@
+﻿  ds4.c
+C:\Users\jyshin\Desktop\tilon\09_연구\DS\Datastructure_Inflearn\Datastructure_Inflearn\ds4.c(52,10): warning C4098: 'add': 'void' 함수에서 값을 반환하고 있습니다.
+C:\Users\jyshin\Desktop\tilon\09_연구\DS\Datastructure_Inflearn\Datastructure_Inflearn\ds4.c(57,8): warning C4477: 'scanf' : 서식 문자열 '%s'에 'char *' 형식의 인수가 필요하지만 variadic 인수 1의 형식이 'char **'입니다.
+C:\Users\jyshin\Desktop\tilon\09_연구\DS\Datastructure_Inflearn\Datastructure_Inflearn\ds4.c(58,7): warning C4013: 'prinf'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
+C:\Users\jyshin\Desktop\tilon\09_연구\DS\Datastructure_Inflearn\Datastructure_Inflearn\ds4.c(60,34): warning C4047: '함수': 'const char *'의 간접 참조 수준이 'char *[100]'과(와) 다릅니다.
+C:\Users\jyshin\Desktop\tilon\09_연구\DS\Datastructure_Inflearn\Datastructure_Inflearn\ds4.c(60,29): warning C4024: 'strlen': 형식 및 실제 매개 변수 1의 형식이 서로 다릅니다.
+C:\Users\jyshin\Desktop\tilon\09_연구\DS\Datastructure_Inflearn\Datastructure_Inflearn\ds4.c(60,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\jyshin\Desktop\tilon\09_연구\DS\Datastructure_Inflearn\Datastructure_Inflearn\ds4.c(62,23): warning C4047: '==': 'char *[20]'의 간접 참조 수준이 'char *'과(와) 다릅니다.
+C:\Users\jyshin\Desktop\tilon\09_연구\DS\Datastructure_Inflearn\Datastructure_Inflearn\ds4.c(68,11): warning C4477: 'printf' : 서식 문자열 '%s'에 'char *' 형식의 인수가 필요하지만 variadic 인수 1의 형식이 'char **'입니다.
+ds4.obj : error LNK2019: _prinf_find 함수에서 참조되는 확인할 수 없는 외부 기호
+C:\Users\jyshin\Desktop\tilon\09_연구\DS\Datastructure_Inflearn\Debug\Datastructure_Inflearn.exe : fatal error LNK1120: 1개의 확인할 수 없는 외부 참조입니다.

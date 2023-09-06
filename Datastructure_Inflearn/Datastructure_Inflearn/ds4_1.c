@@ -13,10 +13,11 @@ char* names[CAPACITY];
 char* numbers[CAPACITY];
 int n = 0; //현재 저장되어 있는 사람 수
 
+//함수 프로토타입(사용자 지정함수) 선언
 void add();
 void find();
 void status();
-void delete();
+void deleteNode();
 
 int main() {
 	while (1) { //입력을 계속 받아야함
@@ -31,43 +32,51 @@ int main() {
 		else if (strcmp(command, "status") == 0)
 			status();
 		else if (strcmp(command, "delete") == 0)
-			delete();
+			deleteNode();
 		else if (strcmp(command, "exit") == 0)
 			break;
+		else {
+			printf("Invalid command. Please enter a valid command.\n");
+			// 입력 버퍼 비우기
+			while (getchar() != '\n') {}
+		}
 	}
 	return 0;
 }
 
 void add() {
+	//전화번호부가 꽉 찼다면
+	if (n >= CAPACITY) { 
+		printf("Phonebook is full. Cannot add more entries.\n");
+		return;
+	}
 	char buff1[WORDS], buff2[WORDS]; //names라는 스택(heap)에 저장되므로,, add함수가 리턴되면 소멸됨
 	scanf("%s", buff1); //이름
 	scanf("%s", buff2); //전화번호
 
-	names[n] = strdup(buff1); //새로운 배열을 할당받기 위하여 strdup 사용
-	numbers[n] = strdup(buff2); //names, numbers..에는 새로 할당된 배열의 주소가 저장
+	names[n] = _strdup(buff1); //새로운 배열을 할당받기 위하여 strdup 사용
+	numbers[n] = _strdup(buff2); //names, numbers..에는 새로 할당된 배열의 주소가 저장
 	n++; //새로운 사람이 한명 추가되었기 때문
-
+	
 	printf("%s was added successfully.\n", buff1);
-
-	return 0;
 }
 
 void find() {
 	char* buff[WORDS];
+	int num;
 	scanf("%s", buff); //찾고자하는 이름 입력
-	prinf("%s\n", names);
+	
+	bool is_there = false;
 
-	for (int i = 0; i < strlen(names); i++) {
-		printf("%s\n", names[i]);
-		if (buff == names[i]) {
-			printf("!");
+	for (int i = 0; i < n; i++) {
+		if (strcmp(buff, names[i]) == 0) { //names 배열에 찾고자하는 이름이 존재한다면
+			is_there = true;
 			printf("%s\n", numbers[i]);
-		}
-		else {
-			printf("^^");
-			printf("No person named '%s' exists.\n", buff);
+			break;
 		}
 	}
+	if (!is_there)
+		printf("No person named '%s' exists.\n", buff);
 }
 
 void status() {
@@ -77,26 +86,29 @@ void status() {
 	printf("Total %d persons.\n", n);
 }
 
-void delete() {
+void deleteNode() {
 	char name[WORDS]; //지우고자 하는 이름
-	int index; //지우고자 하는 이름의 인덱스값
 	scanf("%s", name);
 
+	int index = -1; //지우고자 하는 이름의 인덱스값
 	bool is_there = false;
 
 	for (int i = 0; i < n; i++) {
-		if (names[i] == name)
+		if (strcmp(name, names[i]) == 0)
 			is_there = true;
-		index = i;
+			index = i;
+			break;
 	}
-	if (is_there == true) { //지울 대상이 전화번호부에 존재한다면
+	if (is_there) { //지울 대상이 전화번호부에 존재한다면
+		free(names[index]);
+		free(numbers[index]);
 		for (int j = index; j < n; j++) { //해당 이름, 전화번호 삭제
 			names[j] = names[j + 1];
 			numbers[j] = numbers[j + 1];
 		}
-		printf("No person named '%s' exists.\n", name);
-	}
-	else if (is_there == false) {
+		n--; //한명을 제거했으니 명 수 줄이기
 		printf("%s was deleted successfully.\n", name);
 	}
+	else 
+		printf("No person named '%s' exists.\n", name);
 }
