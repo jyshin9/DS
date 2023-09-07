@@ -80,9 +80,8 @@ void find() {
 }
 
 void status() {
-	for (int i = 0; i < n; i++) {
+	for (int i = 0; i < n; i++)
 		printf("%s %s\n", names[i], numbers[i]);
-	}
 	printf("Total %d persons.\n", n);
 }
 
