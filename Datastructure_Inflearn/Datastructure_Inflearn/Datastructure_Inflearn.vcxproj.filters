@@ -24,16 +24,16 @@
     <ClCompile Include="ds3.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="ds4_phonebook1.c">
+    <ClCompile Include="ds4_Phonebook1.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="ds4_phonebook2.c">
+    <ClCompile Include="ds4_Phonebook2.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="ds4_phonebook3.c">
+    <ClCompile Include="ds4_Phonebook3.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="ds4_phonebook4.c">
+    <ClCompile Include="ds4_Phonebook4.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
