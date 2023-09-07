@@ -6,7 +6,7 @@
 #include <stdbool.h> //boolean 타입 포함
 
 #define CAPACITY 100
-#define WORDS 20
+#define WORDS 100
 
 //전역변수 선언
 char* names[CAPACITY];

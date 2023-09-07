@@ -3,7 +3,7 @@
 #include <string.h>
 
 #define CAPACITY 100 //최대 100명을 저장한다
-#define BUFFER_SIZE 100 
+#define BUFFER_SIZE 100
 
 char* names[CAPACITY]; //names
 char* numbers[CAPACITY]; //phone numbers

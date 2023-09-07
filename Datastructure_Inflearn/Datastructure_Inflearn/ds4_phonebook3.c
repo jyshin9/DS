@@ -7,7 +7,7 @@
 #define BUFFER_SIZE 100
 
 char* names[CAPACITY]; 
-char* numbers[CAPACITY]; 
+char* numbers[CAPACITY];
 int n = 0; 
 
 void add();
