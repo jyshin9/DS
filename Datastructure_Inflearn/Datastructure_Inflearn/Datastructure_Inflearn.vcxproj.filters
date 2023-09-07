@@ -13,28 +13,34 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="소스 파일\Phonebook">
+      <UniqueIdentifier>{fd9b79f9-d6ce-408c-8bb7-b7608ec01ff8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\basic">
+      <UniqueIdentifier>{4a2e1759-6e06-4282-9126-148d34c90dbd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Phonebook_v1.0.1.c">
+      <Filter>소스 파일\Phonebook</Filter>
+    </ClCompile>
+    <ClCompile Include="Phonebook_v1.0.2.c">
+      <Filter>소스 파일\Phonebook</Filter>
+    </ClCompile>
+    <ClCompile Include="Phonebook_v2.0.c">
+      <Filter>소스 파일\Phonebook</Filter>
+    </ClCompile>
+    <ClCompile Include="Phonebook_v3.0.c">
+      <Filter>소스 파일\Phonebook</Filter>
+    </ClCompile>
     <ClCompile Include="ds1.c">
-      <Filter>소스 파일</Filter>
+      <Filter>소스 파일\basic</Filter>
     </ClCompile>
     <ClCompile Include="ds2.c">
-      <Filter>소스 파일</Filter>
+      <Filter>소스 파일\basic</Filter>
     </ClCompile>
     <ClCompile Include="ds3.c">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="ds4_Phonebook1.c">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="ds4_Phonebook2.c">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="ds4_Phonebook3.c">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="ds4_Phonebook4.c">
-      <Filter>소스 파일</Filter>
+      <Filter>소스 파일\basic</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
