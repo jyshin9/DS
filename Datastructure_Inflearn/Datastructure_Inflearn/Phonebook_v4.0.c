@@ -1,0 +1,1 @@
+//phonebook04 | 더 많은 항목, 구조체(structure)

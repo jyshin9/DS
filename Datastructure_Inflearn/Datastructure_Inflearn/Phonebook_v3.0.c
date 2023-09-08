@@ -3,6 +3,8 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
+
 
 #define INIT_CAPACITY 3
 #define BUFFER_SIZE 50
@@ -11,25 +13,26 @@
 char ** names;
 char ** numbers;
 
-char* delim = " ";
+char delim[] = " ";
 
 int capacity = INIT_CAPACITY; //배열의 크기
 int n = 0; //사람 수
 
+int search(char*);
 void init_directory();
-int read_line(char * str, int limit);
+int read_line(char *, int);
 void process_command();
-void add();
+void add(char*, char*);
 void find();
 void status();
-void remove();
-void load(char* fileName);
-void save();
+void remove(char*);
+void load(char*);
+void save(char*);
 void reallocate();
 
 int main() {
 	init_directory(); //동적메모리할당
-	proccess_command(); //전화번호부
+	process_command(); //전화번호부
 
 	return 0;
 }

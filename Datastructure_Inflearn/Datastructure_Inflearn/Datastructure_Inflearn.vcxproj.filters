@@ -42,5 +42,8 @@
     <ClCompile Include="ds3.c">
       <Filter>소스 파일\basic</Filter>
     </ClCompile>
+    <ClCompile Include="Phonebook_v4.0.c">
+      <Filter>소스 파일\Phonebook</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
