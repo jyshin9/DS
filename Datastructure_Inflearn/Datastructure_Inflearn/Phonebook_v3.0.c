@@ -11,22 +11,95 @@
 char ** names;
 char ** numbers;
 
+char* delim = " ";
+
 int capacity = INIT_CAPACITY; //배열의 크기
 int n = 0; //사람 수
 
 void init_directory();
+int read_line(char * str, int limit);
+void process_command();
 void add();
 void find();
 void status();
 void remove();
-void load();
+void load(char* fileName);
 void save();
+void reallocate();
 
 int main() {
-	init_directory();
-	proccess_command();
+	init_directory(); //동적메모리할당
+	proccess_command(); //전화번호부
 
 	return 0;
+}
+
+void process_command() {
+	char command_line[BUFFER_SIZE]; //한 라인을 통째로 읽어오기 위한 버퍼
+	char* command; //명령어
+	char* argument1; //두번째
+	char* argument2; //세번째
+
+	while (1) {
+		printf("$ ");
+
+		if (read_line(command_line, BUFFER_SIZE) <= 0) //작성한 내용이 없다면
+			continue;
+		command = strtok(command_line, delim);
+		if (command == NULL) continue;
+
+		if (strcmp(command, "read") == 0) {
+			argument1 = strtok(NULL, delim);
+			if (argument1 == NULL) {
+				printf("File name required.\n");
+				continue;
+			}
+			load(argument1);
+		}
+
+		else if (strcmp(command, "add") == 0) {
+			argument1 = strtok(NULL, delim);
+			argument2 = strtok(NULL, delim);
+			if (argument1 == NULL || argument2 == NULL) {
+				printf("Invalid arguments.\n");
+				continue;
+			}
+			add(argument1, argument2);
+			printf("%s was added successfully", argument1);
+		}
+
+		else if (strcmp(command, "find") == 0) {
+			argument1 = strtok(NULL, delim);
+			if (argument1 == NULL || argument2 == NULL) {
+				printf("Invalid argument.\n");
+				continue;
+			}
+			find(argument1);
+		}
+
+		else if (strcmp(command, "status") == 0)
+			status();
+
+		else if (strcmp(command, "remove") == 0) {
+			argument1 = strtok(NULL, delim);
+			if (argument1 == NULL || argument2 == NULL) {
+				printf("Invalid argument.\n");
+				continue;
+			}
+			remove(argument1);
+		}
+		else if (strcmp(command, "save") == 0) {
+			argument1 = strtok(NULL, delim);
+			argument2 = strtok(NULL, delim);
+			if (argument1 == NULL || strcmp(argument1, "as") != 0 || argument2 == NULL) {
+				printf("Invalid command format.\n");
+				continue;
+			}
+			save(argument2);
+		}
+		else if (strcmp(command, "exit") == 0)
+			break;
+	}
 }
 
 void init_directory() {
@@ -36,10 +109,42 @@ void init_directory() {
 	numbers = (char**)malloc(INIT_CAPACITY * sizeof(char*));
 }
 
-void load() {
-	char fileName[BUFFER_SIZE]; //입력받은 파일의 이름을 저장
-	scanf("%s", fileName); //불러올 파일 이름을 입력받는다
+//재할당
+void reallocate() {
+	int i;
+	capacity *= 2; //크기를 두배로 늘림
+	
+	char ** tmp1 = (char**)malloc(capacity * sizeof(char*)); //임시 할당 버퍼1
+	char ** tmp2 = (char**)malloc(capacity * sizeof(char*)); //임시 할당 버퍼1
 
+	for (i = 0; i < n; i++) {
+		tmp1[i] = names[i];
+		tmp2[i] = numbers[i];
+	}
+
+	//동적메모리할당으로 만들어진 배열은 그냥 두면 없어지지 않는 메모리(garbage).
+	//garbage는 free함수를 이용하여 반환.
+	free(names);
+	free(numbers);
+
+	//포인터변수 names와 numbers가 새로운 배열을 가리키도록 하기
+	names = tmp1;
+	numbers = tmp2;
+}
+
+int read_line(char str[], int limit) { //limit: 배열 str의 크기
+	int ch, i = 0;
+
+	while ((ch = getchar()) != '\n') { //한글자씩 입력받기
+		if (i < limit - 1)
+			str[i++] = ch; //ch가 str[i]에 대입된 이후에 i값이 1 증가
+	}
+	str[i] = '\0'; //마지막에 null character('\0')값 추가
+
+	return i; //읽은 글자수 반환
+}
+
+void load(char *fileName) {
 	char buf1[BUFFER_SIZE]; //이름
 	char buf2[BUFFER_SIZE]; //전화번호
 
@@ -52,20 +157,12 @@ void load() {
 	//파일을 성공적으로 엶!!! 그리고 파일로부터 데이터 읽어오기
 	while ((fscanf(fp, "%s", buf1) != EOF)) { //파일의 끝에 도달할 때까지 데이터를 읽어서 배열에 저장
 		fscanf(fp, "%s", buf2);
-		names[n] = strdup(buf1); //이름
-		numbers[n] = strdup(buf2); //전화번호
-		n++;
+		add(buf1, buf2);
 	}
 	fclose(fp); //볼일이 끝난 파일은 반드시 닫아주어야 함.
 }
 
-void save() {
-	char fileName[BUFFER_SIZE]; //파일을 다음 이름으로 저장
-	char tmp[BUFFER_SIZE];
-
-	scanf("%s", tmp); //as임. 그냥 입력용. 후에 버림
-	scanf("%s", fileName);
-
+void save(char * fileName) {
 	FILE* fp = fopen(fileName, "w"); //쓰기위하여 write모드로 엶
 	if (fp == NULL) {
 		printf("Open failed.\n");
@@ -78,22 +175,21 @@ void save() {
 	fclose(fp);
 }
 
-void add() {
-	char buf1[BUFFER_SIZE], buf2[BUFFER_SIZE];
-	scanf("%s", buf1); //이름
-	scanf("%s", buf2); //전화번호
+void add(char * name, char * number) {
+	if (n >= capacity) //배열이 꽉참
+		reallocate(); 
 
 	int i = n - 1;
-	while (n > 0 && strcmp(buf1, names[i]) < 0) { //buf가 더 작을 때(알파벳이 더 작을 때)
+	while (n > 0 && strcmp(name, names[i]) < 0) { //buf가 더 작을 때(알파벳이 더 작을 때)
 		names[i + 1] = names[i];
 		numbers[i + 1] = numbers[i];
 		i--;
 	}
-	names[i] = strdup(buf1);
-	numbers[i] = strdup(buf2);
+	names[i] = strdup(name);
+	numbers[i] = strdup(number);
 	n++;
 
-	printf("%s was added successfully,\n", buf1);
+	printf("%s was added successfully,\n", name);
 }
 
 void status() {
@@ -104,13 +200,10 @@ void status() {
 	printf("Total %d persons.\n", n);
 }
 
-void remove() {
-	char buf[BUFFER_SIZE];
-	scanf("%s", buf);
-
-	int index = search(buf);
+void remove(char * name) {
+	int index = search(name);
 	if (index == -1) {
-		printf("No person named '%s' exists.\n", buf);
+		printf("No person named '%s' exists.\n", name);
 		return;
 	}
 	int i = index;
@@ -120,7 +213,7 @@ void remove() {
 	}
 	n--;
 
-	printf("No person named '%s' exists.\n", buf);
+	printf("No person named '%s' exists.\n", name);
 }
 
 int search(char* name) {
@@ -132,18 +225,13 @@ int search(char* name) {
 	return -1;
 }
 
-void find() {
-	char buf[BUFFER_SIZE];
-	scanf("%s", buf);
-
-	int i;
-	for (i = 0; i < n; i++) {
-		if (strcmp(buf, names[i]) == 0) {
-			printf("%s\n", numbers[i]);
-			return;
-		}
-	}
-	printf("No person named '%s' exist.\n", buf);
+void find(char* name) {
+	int index = search(name);
+	if (index == -1)
+		printf("No person named '%s' exist.\n", name);
+	else
+		printf("%s\n", numbers[index]);
+	
 }
 
 void status() {
