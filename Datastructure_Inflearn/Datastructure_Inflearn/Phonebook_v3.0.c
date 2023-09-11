@@ -5,7 +5,6 @@
 #include <string.h>
 #include <stdlib.h>
 
-
 #define INIT_CAPACITY 3
 #define BUFFER_SIZE 50
 
