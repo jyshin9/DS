@@ -81,7 +81,18 @@ int main() {
 }
 
 void save(char * argument) {
-	
+	FILE* fp = fopen(argument, "w");
+	if (fp == NULL) {
+		printf("Open failed");
+		return;
+	}
+	for (int i = 0; i < n; i++) {
+		fprintf(fp, "%s#", directory[n].name);
+		fprintf(fp, "%s#", directory[n].number);
+		fprintf(fp, "%s#", directory[n].email);
+		fprintf(fp, "%s#", directory[n].group);
+	}
+	fclose(fp);
 }
 
 //공백을 기준으로 나누어져 있는 문자를 합쳐서 하나의 문자열로 만듦.
@@ -136,6 +147,13 @@ void load(char * argument) {
 	fclose(fp);
 }
 
+void status() {
+	for (int i = 0; i < n; i++) {
+		find(directory[i].name);
+	printf("Total %d persons.\n", n);
+	}
+}
+
 void add_div(char *argument) {
 	directory[n].name = argument;
 	printf("Phone: ");
@@ -149,8 +167,13 @@ void add_div(char *argument) {
 	printf("%s was added successfully.", directory[n].name);
 }
 
+//추가 후 알파벳 순으로 정렬
 void add(char* name, char* number, char* email, char* group) {
-	 
+	int i = n - 1;
+	if (i >= 0 && strcmp(directory[i].name, name) > 0) { //directory[i].name > name
+		directory[i + 1] = directory[i];
+		i--;
+	}
 }
 
 int search(char * argument) {
@@ -166,7 +189,7 @@ void find(char* argument) {
 	if (index == -1)
 		printf("No person names '%s' exists.");
 	else {
-		printf("%s\n:", directory[index].name);
+		printf("%s:\n", directory[index].name);
 		printf("   Phone: %s\n", directory[index].number);
 		printf("   Email: %s\n", directory[index].email);
 		printf("   Group: %s\n", directory[index].group);
