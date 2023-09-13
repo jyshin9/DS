@@ -16,7 +16,7 @@ void add_div(char*);
 void add(char*, char*, char*, char*);
 int search(char*);
 void find(char*);
-void remove(char*);
+int remove(char*);
 
 //전화번호부 구조체 선언
 typedef struct phonebook {
@@ -194,10 +194,10 @@ void add(char* name, char* number, char* email, char* group) {
 		directory[i + 1] = directory[i];
 		i--;
 	}
-	directory[i + 1].name = strdup(name);
-	directory[i + 1].number = strdup(number);
-	directory[i + 1].email = strdup(email);
-	directory[i + 1].group = strdup(group);
+	directory[i + 1].name = _strdup(name);
+	directory[i + 1].number = _strdup(number);
+	directory[i + 1].email = _strdup(email);
+	directory[i + 1].group = _strdup(group);
 
 	printf("%s was added successfully.", directory[n].name);
 	n++;
@@ -225,7 +225,7 @@ void find(char* argument) {
 	}
 }
 
-void remove(char* argument) {
+int remove(char* argument) {
 	int index = search(argument);
 	if (index == -1) {
 		printf("No person names '%s' exists.");
