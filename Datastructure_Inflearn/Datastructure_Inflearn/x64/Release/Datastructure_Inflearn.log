@@ -1,13 +1,29 @@
-﻿  ds4.c
-C:\Users\jyshin\Desktop\tilon\09_연구\DS\Datastructure_Inflearn\Datastructure_Inflearn\ds4.c(67,8): warning C4477: 'scanf' : 서식 문자열 '%s'에 'char *' 형식의 인수가 필요하지만 variadic 인수 1의 형식이 'char **'입니다.
-C:\Users\jyshin\Desktop\tilon\09_연구\DS\Datastructure_Inflearn\Datastructure_Inflearn\ds4.c(72,18): warning C4047: '함수': 'const char *'의 간접 참조 수준이 'char *[20]'과(와) 다릅니다.
-C:\Users\jyshin\Desktop\tilon\09_연구\DS\Datastructure_Inflearn\Datastructure_Inflearn\ds4.c(72,14): warning C4024: 'strcmp': 형식 및 실제 매개 변수 1의 형식이 서로 다릅니다.
-C:\Users\jyshin\Desktop\tilon\09_연구\DS\Datastructure_Inflearn\Datastructure_Inflearn\ds4.c(79,10): warning C4477: 'printf' : 서식 문자열 '%s'에 'char *' 형식의 인수가 필요하지만 variadic 인수 1의 형식이 'char **'입니다.
-C:\Users\jyshin\Desktop\tilon\09_연구\DS\Datastructure_Inflearn\Datastructure_Inflearn\ds4.c(66,6): warning C4101: 'num' :참조되지 않은 지역 변수입니다.
-C:\Users\jyshin\Desktop\tilon\09_연구\DS\Datastructure_Inflearn\Datastructure_Inflearn\ds4.c(103,7): warning C4013: 'free'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
-  코드를 생성하고 있습니다.
-  2 of 11 functions (18.2%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
-  코드를 생성했습니다.
-  Datastructure_Inflearn.vcxproj -> C:\Users\jyshin\Desktop\tilon\09_연구\DS\Datastructure_Inflearn\x64\Release\Datastructure_Inflearn.exe
+﻿  Phonebook_v4.0.c
+C:\Users\jyshin\Desktop\tilon\09_연구\DS\Datastructure_Inflearn\Datastructure_Inflearn\Phonebook_v4.0.c(28,16): warning C4013: 'read_line'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
+C:\Users\jyshin\Desktop\tilon\09_연구\DS\Datastructure_Inflearn\Datastructure_Inflearn\Phonebook_v4.0.c(39,8): warning C4013: 'load'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
+C:\Users\jyshin\Desktop\tilon\09_연구\DS\Datastructure_Inflearn\Datastructure_Inflearn\Phonebook_v4.0.c(42,20): warning C4013: 'compose_name'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
+C:\Users\jyshin\Desktop\tilon\09_연구\DS\Datastructure_Inflearn\Datastructure_Inflearn\Phonebook_v4.0.c(46,11): warning C4013: 'add_div'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
+C:\Users\jyshin\Desktop\tilon\09_연구\DS\Datastructure_Inflearn\Datastructure_Inflearn\Phonebook_v4.0.c(53,8): warning C4013: 'find'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
+C:\Users\jyshin\Desktop\tilon\09_연구\DS\Datastructure_Inflearn\Datastructure_Inflearn\Phonebook_v4.0.c(56,10): warning C4013: 'status'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
+C:\Users\jyshin\Desktop\tilon\09_연구\DS\Datastructure_Inflearn\Datastructure_Inflearn\Phonebook_v4.0.c(75,8): warning C4013: 'save'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
+C:\Users\jyshin\Desktop\tilon\09_연구\DS\Datastructure_Inflearn\Datastructure_Inflearn\Phonebook_v4.0.c(83,6): error C2371: 'save': 재정의. 기본 형식이 다릅니다.
+C:\Users\jyshin\Desktop\tilon\09_연구\DS\Datastructure_Inflearn\Datastructure_Inflearn\Phonebook_v4.0.c(108,23): warning C4267: '+=': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\jyshin\Desktop\tilon\09_연구\DS\Datastructure_Inflearn\Datastructure_Inflearn\Phonebook_v4.0.c(115,25): warning C4267: '+=': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\jyshin\Desktop\tilon\09_연구\DS\Datastructure_Inflearn\Datastructure_Inflearn\Phonebook_v4.0.c(133,6): error C2371: 'load': 재정의. 기본 형식이 다릅니다.
+C:\Users\jyshin\Desktop\tilon\09_연구\DS\Datastructure_Inflearn\Datastructure_Inflearn\Phonebook_v4.0.c(150,6): warning C4013: 'add'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
+C:\Users\jyshin\Desktop\tilon\09_연구\DS\Datastructure_Inflearn\Datastructure_Inflearn\Phonebook_v4.0.c(155,6): error C2371: 'status': 재정의. 기본 형식이 다릅니다.
+C:\Users\jyshin\Desktop\tilon\09_연구\DS\Datastructure_Inflearn\Datastructure_Inflearn\Phonebook_v4.0.c(162,6): error C2371: 'add_div': 재정의. 기본 형식이 다릅니다.
+C:\Users\jyshin\Desktop\tilon\09_연구\DS\Datastructure_Inflearn\Datastructure_Inflearn\Phonebook_v4.0.c(180,6): error C2371: 'add': 재정의. 기본 형식이 다릅니다.
+C:\Users\jyshin\Desktop\tilon\09_연구\DS\Datastructure_Inflearn\Datastructure_Inflearn\Phonebook_v4.0.c(186,26): error C4996: 'strdup': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _strdup. See online help for details.
+C:\Users\jyshin\Desktop\tilon\09_연구\DS\Datastructure_Inflearn\Datastructure_Inflearn\Phonebook_v4.0.c(187,28): error C4996: 'strdup': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _strdup. See online help for details.
+C:\Users\jyshin\Desktop\tilon\09_연구\DS\Datastructure_Inflearn\Datastructure_Inflearn\Phonebook_v4.0.c(188,27): error C4996: 'strdup': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _strdup. See online help for details.
+C:\Users\jyshin\Desktop\tilon\09_연구\DS\Datastructure_Inflearn\Datastructure_Inflearn\Phonebook_v4.0.c(189,27): error C4996: 'strdup': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _strdup. See online help for details.
+C:\Users\jyshin\Desktop\tilon\09_연구\DS\Datastructure_Inflearn\Datastructure_Inflearn\Phonebook_v4.0.c(203,6): error C2371: 'find': 재정의. 기본 형식이 다릅니다.
+C:\Users\jyshin\Desktop\tilon\09_연구\DS\Datastructure_Inflearn\Datastructure_Inflearn\Phonebook_v4.0.c(206,10): warning C4473: 'printf': 서식 문자열에 대한 인수가 충분하게 전달되지 않았습니다.
+C:\Users\jyshin\Desktop\tilon\09_연구\DS\Datastructure_Inflearn\Datastructure_Inflearn\Phonebook_v4.0.c(206,10): message : 자리 표시자 및 해당 매개 변수에는 variadic 인수가 1개 필요하지만 0개가 제공되었습니다.
+C:\Users\jyshin\Desktop\tilon\09_연구\DS\Datastructure_Inflearn\Datastructure_Inflearn\Phonebook_v4.0.c(206,10): message : 누락된 variadic 인수 1이(가) 서식 문자열 '%s'에 필요합니다.
+C:\Users\jyshin\Desktop\tilon\09_연구\DS\Datastructure_Inflearn\Datastructure_Inflearn\Phonebook_v4.0.c(217,6): error C2371: 'remove': 재정의. 기본 형식이 다릅니다.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22000.0\ucrt\stdio.h(369): message : 'remove' 선언을 참조하십시오.
+C:\Users\jyshin\Desktop\tilon\09_연구\DS\Datastructure_Inflearn\Datastructure_Inflearn\Phonebook_v4.0.c(220,10): warning C4473: 'printf': 서식 문자열에 대한 인수가 충분하게 전달되지 않았습니다.
+C:\Users\jyshin\Desktop\tilon\09_연구\DS\Datastructure_Inflearn\Datastructure_Inflearn\Phonebook_v4.0.c(220,10): message : 자리 표시자 및 해당 매개 변수에는 variadic 인수가 1개 필요하지만 0개가 제공되었습니다.
+C:\Users\jyshin\Desktop\tilon\09_연구\DS\Datastructure_Inflearn\Datastructure_Inflearn\Phonebook_v4.0.c(220,10): message : 누락된 variadic 인수 1이(가) 서식 문자열 '%s'에 필요합니다.

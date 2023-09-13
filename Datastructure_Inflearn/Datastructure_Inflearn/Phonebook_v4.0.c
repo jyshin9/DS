@@ -7,6 +7,17 @@
 #define CAPACITY 100
 #define BUFFER_LENGTH 100
 
+void save(char*);
+int compose_name(char, int);
+int read_line(FILE*, char, int );
+void load(char*);
+void status();
+void add_div(char*);
+void add(char*, char*, char*, char*);
+int search(char*);
+void find(char*);
+void remove(char*);
+
 //전화번호부 구조체 선언
 typedef struct phonebook {
 	char* name;
@@ -63,7 +74,7 @@ int main() {
 		}
 		else if (strcmp(command, "save") == 0) {
 			argument = strtok(command, " ");
-			if (strcmp(argument, "as") != 0) {
+			if (strcmp(argument, "as") != 0) { //두번째 토큰이 as이어야 함
 				printf("Invalid arguments.\n");
 				continue;
 			}
@@ -95,7 +106,7 @@ void save(char * argument) {
 	fclose(fp);
 }
 
-//공백을 기준으로 나누어져 있는 문자를 합쳐서 하나의 문자열로 만듦.
+//이름의 길이를 반환
 //add_div, find, delete에 사용
 int compose_name(char str[], int limit) { //이름을 담아둘 배열 str
 	char* ptr;
@@ -107,8 +118,13 @@ int compose_name(char str[], int limit) { //이름을 담아둘 배열 str
 	strcpy(str, ptr);
 	length += strlen(str);
 
-	while (ptr = strtok(NULL, " ") != NULL) {
-		str = str + ' ' + ptr; //음 몰겟다
+	while ((ptr = strtok(NULL, " ")) != NULL) {
+		if (length + strlen(ptr) + 1 < limit) { //+1을 하는 이유는 끝에 '\0'을 넣기 위함
+			str[length++] = ' ';
+			str[length] = '\0'; //문자열 마지막에 '\0'(Null chracter)추가
+			strcat(str, ptr); //문자열 연결 함수
+			length += strlen(ptr);
+		}
 	}
 	return length;
 }
@@ -154,17 +170,21 @@ void status() {
 	}
 }
 
-void add_div(char *argument) {
-	directory[n].name = argument;
-	printf("Phone: ");
-	scanf("%s", directory[n].number);
-	printf("Email: ");
-	scanf("%s", directory[n].email);
-	printf("Group: ");
-	scanf("%s", directory[n].group);
-	n++;
-	printf("%s",directory);
-	printf("%s was added successfully.", directory[n].name);
+void add_div(char *name) {
+	char number[BUFFER_LENGTH], email[BUFFER_LENGTH], group[BUFFER_LENGTH];
+	char empty[] = " "; //입력값이 없을 때
+
+	printf("   Phone: ");
+	read_line(stdin, number, BUFFER_LENGTH);
+	printf("   Email: ");
+	read_line(stdin, email, BUFFER_LENGTH);
+	printf("   Group: ");
+	read_line(stdin, group, BUFFER_LENGTH);
+
+	//존재하지 않는 항목들을 하나의 공백문자로 구성된 문자열로 대체한다. <<대박이당~~
+	add(name, (char*)(strlen(number) > 0 ? number : empty),
+			(char*)(strlen(email) > 0 ? email : empty),
+			(char*)(strlen(group) > 0 ? group : empty));
 }
 
 //추가 후 알파벳 순으로 정렬
@@ -174,6 +194,13 @@ void add(char* name, char* number, char* email, char* group) {
 		directory[i + 1] = directory[i];
 		i--;
 	}
+	directory[i + 1].name = strdup(name);
+	directory[i + 1].number = strdup(number);
+	directory[i + 1].email = strdup(email);
+	directory[i + 1].group = strdup(group);
+
+	printf("%s was added successfully.", directory[n].name);
+	n++;
 }
 
 int search(char * argument) {
@@ -186,12 +213,30 @@ int search(char * argument) {
 
 void find(char* argument) {
 	int index = search(argument);
-	if (index == -1)
+	if (index == -1) {
 		printf("No person names '%s' exists.");
+		return;
+	}
 	else {
 		printf("%s:\n", directory[index].name);
 		printf("   Phone: %s\n", directory[index].number);
 		printf("   Email: %s\n", directory[index].email);
 		printf("   Group: %s\n", directory[index].group);
+	}
+}
+
+void remove(char* argument) {
+	int index = search(argument);
+	if (index == -1) {
+		printf("No person names '%s' exists.");
+		return;
+	}
+	else {
+		int j = index;
+		for (; j < n - 1; j++) {
+			directory[j] = directory[j + 1];
+		}
+		n--;
+		printf("'%s' was deleted successfully.\n", argument);
 	}
 }
