@@ -145,7 +145,7 @@ void load(char * argument) {
 	char buff[BUFFER_LENGTH];
 	char* name, * number, * email, * group;
 
-	FILE* fp = fopen(argument, "r"); //읽기모드로 파일 열기
+	FILE* fp = fopen(argument, "r");
 	if (fp == NULL) {
 		printf("Open failed.\n");
 		return;
