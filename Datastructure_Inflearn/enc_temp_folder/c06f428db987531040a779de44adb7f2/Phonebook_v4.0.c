@@ -145,7 +145,7 @@ void load(char * argument) {
 	char buff[BUFFER_LENGTH];
 	char* name, * number, * email, * group;
 
-	FILE* fp = fopen(argument, "r");
+	FILE* fp = fopen(argument, "r"); //읽기모드로 파일 열기
 	if (fp == NULL) {
 		printf("Open failed.\n");
 		return;
@@ -214,7 +214,7 @@ int search(char * argument) {
 void find(char* argument) {
 	int index = search(argument);
 	if (index == -1) {
-		printf("No person names '%s' exists.");
+		printf("No person names '%s' exists.",argument);
 		return;
 	}
 	else {

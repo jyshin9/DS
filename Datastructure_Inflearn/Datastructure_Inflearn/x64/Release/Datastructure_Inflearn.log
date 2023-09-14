@@ -14,17 +14,14 @@ C:\Users\jyshin\Desktop\tilon\09_연구\DS\Datastructure_Inflearn\Datastructure_
 C:\Users\jyshin\Desktop\tilon\09_연구\DS\Datastructure_Inflearn\Datastructure_Inflearn\Phonebook_v4.0.c(119,23): warning C4267: '+=': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
 C:\Users\jyshin\Desktop\tilon\09_연구\DS\Datastructure_Inflearn\Datastructure_Inflearn\Phonebook_v4.0.c(126,25): warning C4267: '+=': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
 C:\Users\jyshin\Desktop\tilon\09_연구\DS\Datastructure_Inflearn\Datastructure_Inflearn\Phonebook_v4.0.c(133,30): warning C4028: 정식 매개 변수 2이(가) 선언과 다릅니다.
-C:\Users\jyshin\Desktop\tilon\09_연구\DS\Datastructure_Inflearn\Datastructure_Inflearn\Phonebook_v4.0.c(217,10): warning C4473: 'printf': 서식 문자열에 대한 인수가 충분하게 전달되지 않았습니다.
-C:\Users\jyshin\Desktop\tilon\09_연구\DS\Datastructure_Inflearn\Datastructure_Inflearn\Phonebook_v4.0.c(217,10): message : 자리 표시자 및 해당 매개 변수에는 variadic 인수가 1개 필요하지만 0개가 제공되었습니다.
-C:\Users\jyshin\Desktop\tilon\09_연구\DS\Datastructure_Inflearn\Datastructure_Inflearn\Phonebook_v4.0.c(217,10): message : 누락된 variadic 인수 1이(가) 서식 문자열 '%s'에 필요합니다.
 C:\Users\jyshin\Desktop\tilon\09_연구\DS\Datastructure_Inflearn\Datastructure_Inflearn\Phonebook_v4.0.c(231,10): warning C4473: 'printf': 서식 문자열에 대한 인수가 충분하게 전달되지 않았습니다.
 C:\Users\jyshin\Desktop\tilon\09_연구\DS\Datastructure_Inflearn\Datastructure_Inflearn\Phonebook_v4.0.c(231,10): message : 자리 표시자 및 해당 매개 변수에는 variadic 인수가 1개 필요하지만 0개가 제공되었습니다.
 C:\Users\jyshin\Desktop\tilon\09_연구\DS\Datastructure_Inflearn\Datastructure_Inflearn\Phonebook_v4.0.c(231,10): message : 누락된 variadic 인수 1이(가) 서식 문자열 '%s'에 필요합니다.
 C:\Users\jyshin\Desktop\tilon\09_연구\DS\Datastructure_Inflearn\Datastructure_Inflearn\Phonebook_v4.0.c(232,3): warning C4033: 'remove'은(는) 값을 반환해야 합니다.
      C:\Users\jyshin\Desktop\tilon\09_연구\DS\Datastructure_Inflearn\x64\Release\Datastructure_Inflearn.lib 라이브러리 및 C:\Users\jyshin\Desktop\tilon\09_연구\DS\Datastructure_Inflearn\x64\Release\Datastructure_Inflearn.exp 개체를 생성하고 있습니다.
   코드를 생성하고 있습니다.
-  0 of 15 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
+  Previous IPDB and IOBJ mismatch, fall back to full compilation.
+C:\Users\jyshin\Desktop\tilon\09_연구\DS\Datastructure_Inflearn\Datastructure_Inflearn\Phonebook_v4.0.c(242): warning C4716: 'remove': 값을 반환해야 합니다.
+  All 15 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   코드를 생성했습니다.
   Datastructure_Inflearn.vcxproj -> C:\Users\jyshin\Desktop\tilon\09_연구\DS\Datastructure_Inflearn\x64\Release\Datastructure_Inflearn.exe

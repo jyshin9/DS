@@ -214,7 +214,7 @@ int search(char * argument) {
 void find(char* argument) {
 	int index = search(argument);
 	if (index == -1) {
-		printf("No person names '%s' exists.");
+		printf("No person names '%s' exists.",argument);
 		return;
 	}
 	else {
@@ -225,7 +225,7 @@ void find(char* argument) {
 	}
 }
 
-int remove(char* argument) {
+int remove(char* argument){
 	int index = search(argument);
 	if (index == -1) {
 		printf("No person names '%s' exists.");
