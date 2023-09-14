@@ -7,6 +7,20 @@
 #define INIT_CAPACITY 100
 #define BUFFER_SIZE 100
 
+void add_div(char*);
+int compose_name(char, int);
+void init();
+void reallocate();
+void load(char*);
+void add(char*, char*, char*, char*);
+void status();
+void print_person(Person*);
+int search(char*);
+void find(char*);
+void remove(char*);
+void release_person(Person*);
+void save(char*);
+
 typedef struct person {
 	char* name;
 	char* number;
