@@ -28,6 +28,6 @@ int main() {
 	Node* p = head;
 	while (p != NULL) {
 		printf("%s\n", p->data);
-		p = p->next;
+		p = p->next; //p 한칸 앞으로 전진
 	}
 }
