@@ -51,10 +51,10 @@
     <ClCompile Include="Phonebook_v5.0.c">
       <Filter>소스 파일\Phonebook</Filter>
     </ClCompile>
-    <ClCompile Include="Linkedlist1.c">
+    <ClCompile Include="Linkedlist_basic.c">
       <Filter>소스 파일\Linkedlist</Filter>
     </ClCompile>
-    <ClCompile Include="Linkedlist2.c">
+    <ClCompile Include="Linkedlist_note.c">
       <Filter>소스 파일\Linkedlist</Filter>
     </ClCompile>
   </ItemGroup>
